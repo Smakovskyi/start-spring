@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+  <!-- <context:property-placeholder location="classpath:config.properties" />-->
+  <!---->
+  <context:component-scan base-package="ua.kpi"/>
+  <context:annotation-config></context:annotation-config>
+
+  <bean name="view" class="ua.kpi.view.View"/>
+  <bean name="controller" class="ua.kpi.controller.Controller">
+    <constructor-arg name="view" ref="view"/>
+  </bean>
+  <!--
+
+    <bean name="commodityDao" class="ua.kpi.dao.CommodityDAO"/>
+    <bean name="commodityService" class="ua.kpi.services.CommodityService">
+      <constructor-arg index="0" ref="commodityDao"/>
+    </bean>
+
+      <property name="commodityService" ref="commodityService"/>
+      <property name="view" ref="view"/>
+    </bean>
+  -->
+
+</beans>
